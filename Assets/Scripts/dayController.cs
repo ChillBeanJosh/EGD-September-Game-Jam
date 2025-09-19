@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class dayController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class dayController : MonoBehaviour
 
     [Header("Day Tracking")]
     public int currentDay = 1;
+    public int dayLimit = 31;
     public TextMeshProUGUI currentDayText;
 
 
@@ -70,6 +72,8 @@ public class dayController : MonoBehaviour
 
         if (gameSpawner != null) gameSpawner.StopSpawning();
         UpdateDayUI();
+
+        if (currentDay >= dayLimit) scenesManager.Instance.LoadScene(scenesManager.Scene.GameOver);
     }
 
     public void AddDays(int daysToAdd)
