@@ -8,7 +8,7 @@ public class Clock_manager : MonoBehaviour
 
     public float roundTime = 0f;
 
-    private float tickAngle;
+    public float tickAngle;
 
     private float timeLeft;
 
@@ -25,25 +25,5 @@ public class Clock_manager : MonoBehaviour
 
         //Angle in relation to tick on time:
         tickAngle = 360f / roundTime;
-    }
-
-
-    public void RotateTick()
-    {
-        dayStart = true;
-        objectTransform.Rotate(Vector3.forward, tickAngle);
-    }
-
-
-    private void Update()
-    {
-        timeLeft = roundTime;
-
-        timeLeft -= ()
-        if ()
-        {
-            RotateTick()
-
-        }
     }
 }
