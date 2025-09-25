@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e8f287078eb644182e09f200769aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleGames: []
+  possibleGames:
+  - {fileID: 0}
   minimumDay: 1
   maximumDay: 3

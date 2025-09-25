@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6310877622085710304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834827033245461450}
+  - component: {fileID: 4525525186055601509}
+  - component: {fileID: 7892155197856218199}
+  m_Layer: 0
+  m_Name: Bad Typing Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834827033245461450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310877622085710304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4525525186055601509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310877622085710304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f705cf66020d864892e41ac7f19509d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameUI: {fileID: 0}
+  inputReader: {fileID: 7892155197856218199}
+  typingUI: {fileID: 0}
+--- !u!114 &7892155197856218199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310877622085710304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a221a400925a84595478e59afbac0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possiblePhrases:
+  - const std::vector<std::vector<Item>>& getItems() const;
+  - std::vector<Player>::iterator findPlayer(const std::string& playerName);
+  - Item(const std::string& name="", const float& weight = 0, const ItemType& type
+    = NONE);
+  - node->setLeftChild(insertHelper(node->getLeftChild(), player, inserted));
+  - node->setRightChild(insertHelper(node->getRightChild(), player, inserted));
+  - int BinarySearch(int a[], int size, int value);
+  - int linearSearch(int a[], int size, int value);
+  - float dot = Vector3.Dot(wave.direction, new Vector3(worldPosition.x, 0f, worldPosition.z));
+  - Spring(ref _springPosition, ref _springVelocity, transform.position, halfLife,
+    frequency, deltaTime);
+  - currentVelocity += motor.CharacterUp * effectiveGravity * deltaTime;
+  - 'Collider[] hitColliders = Physics.OverlapSphere(transform.position, chargeEffectRadius):'
+  - public CharacterState GetState() => _state;
+  - var planarAcceleration = Vector3.ProjectOnPlane(acceleration, up);
+  - 'float f = lens.isConvex ? Mathf.Abs(lens.focalLength) : -Mathf.Abs(lens.focalLength);'
+  - timerText.text = time.ToString(@"mm\:ss\:fff");
+  stringAmount: 1
+  waitTime: 0

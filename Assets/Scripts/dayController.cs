@@ -11,6 +11,8 @@ public class dayController : MonoBehaviour
     public Clock_manager clockManager;
     public minigameSpawner gameSpawner;
 
+    public Button startDayButton;
+
     private float rotatedAmount = 0f;
     private bool isDayRunning = false;
 
@@ -26,12 +28,14 @@ public class dayController : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (startDayButton != null)
         {
-            eventStartDay();
+            startDayButton.onClick.AddListener(eventStartDay);
         }
+
+        UpdateDayUI();
     }
 
     public void eventStartDay()
@@ -48,6 +52,9 @@ public class dayController : MonoBehaviour
         rotatedAmount = 0f;
         clockManager.dayStart = true;
 
+        if (startDayButton != null) startDayButton.gameObject.SetActive(false);
+
+
         float degreesPerSecond = 360f / clockManager.roundTime;
 
         if (gameSpawner != null) gameSpawner.StartSpawning();
@@ -62,6 +69,7 @@ public class dayController : MonoBehaviour
             yield return null;
         }
 
+        currentDay++;
         eventEndDay();
     }
 
@@ -70,8 +78,28 @@ public class dayController : MonoBehaviour
         Debug.Log("Day Ended!");
         isDayRunning = false;
 
-        if (gameSpawner != null) gameSpawner.StopSpawning();
+        if (gameSpawner != null)
+        {
+            gameSpawner.StopSpawning();
+
+            foreach (var minigame in badMinigames.activeMinigames)
+            {
+                if (minigame != null) minigame.EndMinigame(false); 
+            }
+
+            badMinigames.activeMinigames.Clear();
+
+            foreach (var button in gameSpawner.activeButtons)
+            {
+                if (button != null) Destroy(button);
+            }
+            gameSpawner.activeButtons.RemoveAll(item => item == null);
+        }
+        
+
         UpdateDayUI();
+
+        if (startDayButton != null) startDayButton.gameObject.SetActive(true);
 
         if (currentDay >= dayLimit) scenesManager.Instance.LoadScene(scenesManager.Scene.GameOver);
     }

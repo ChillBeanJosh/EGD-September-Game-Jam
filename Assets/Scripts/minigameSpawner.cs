@@ -6,13 +6,17 @@ public class minigameSpawner : MonoBehaviour
 {
 
     [Header("Spawn Settings")]
-    public List<GameObject> minigames;        
+    public List<GameObject> minigames;
+    public List<GameObject> activeButtons = new List<GameObject>();
+
     public RectTransform panel;               
 
     public float spawnInterval = 2f;          
     public float destroyTime = 5f;
 
     private Coroutine spawnRoutine;
+
+     public bool minigameActive = false;
 
 
     public void StartSpawning()
@@ -54,6 +58,10 @@ public class minigameSpawner : MonoBehaviour
         //Select a random minigame:
         GameObject prefab = minigames[Random.Range(0, minigames.Count)];
         GameObject spawnedUI = Instantiate(prefab, panel);
+        activeButtons.Add(spawnedUI);
+
+        //Toggle on and off buttons when minigame is playing:
+        spawnedUI.SetActive(!minigameActive);
 
         //Refrence to panel to allow random positioning:
         RectTransform spawnedRect = spawnedUI.GetComponent<RectTransform>();

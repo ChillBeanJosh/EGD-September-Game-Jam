@@ -4,13 +4,16 @@ using UnityEngine.UI;
 
 public class badMinigames : MonoBehaviour
 {
-    public List<Image> possibleGames;
+    public List<MinigameBase> possibleGames;
+    private MinigameBase chosenGame;
+
+    public static List<MinigameBase> activeMinigames = new List<MinigameBase>();
+
 
     [Header("Work Day Increment Range")]
     public int minimumDay = 1;
     public int maximumDay = 3;
 
-    private Image choseGame;
     private int workDaysIncremented;
 
     private void Start()
@@ -18,8 +21,8 @@ public class badMinigames : MonoBehaviour
         if (possibleGames.Count > 0)
         {
             //Assign a Random Minigame:
-            choseGame = possibleGames[Random.Range(0, possibleGames.Count)];
-            choseGame.gameObject.SetActive(false);
+            chosenGame = possibleGames[Random.Range(0, possibleGames.Count)];
+            //chosenGame.gameObject.SetActive(false);
         }
         workDaysIncremented = Random.Range(minimumDay, maximumDay + 1);
 
@@ -29,10 +32,13 @@ public class badMinigames : MonoBehaviour
 
     private void OnBadMinigameSelected()
     {
-        if (choseGame != null) choseGame.gameObject.SetActive(true);
+        if (chosenGame != null)
+        {
+            chosenGame.StartMinigame();
+            activeMinigames.Add(chosenGame);
+        }
 
         dayController.Instance.AddDays(workDaysIncremented);
-
         Destroy(gameObject);
     }
 }
