@@ -135,5 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleGames:
   - {fileID: 0}
+  - {fileID: 0}
   minimumDay: 1
   maximumDay: 3
